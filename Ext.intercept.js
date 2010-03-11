@@ -11,15 +11,16 @@
  * @param fn {Function} the function to execute. Any arguments passed to the intercepted 
  * method can be defined and accessed in this function as well.
  */
-Ext.intercept(/*CLASS*/.prototype, /*METHOD*/, function(/*ARGUMENTS*/) {
+Ext.intercept(/*CLASS*/.prototype, /*'METHOD'*/, function(/*ARGUMENTS*/) {
 	/*DO IT!*/
 });
 
 // Working Example #1
 Ext.intercept(Ext.form.Field.prototype, 'initComponent', function() {
-	if (this.allowBlank === false && this.fieldLabel) {
-		this.fieldLabel = '<span style="color:red;">*</span> '+this.fieldLabel;
-	} else if (this.allowBlank === true && this.fieldLabel) {
-		this.fieldLabel = '&nbsp; '+this.fieldLabel;
+	var fl = this.fieldLabel, ab = this.allowBlank;
+	if (ab === false && fl) {
+		this.fieldLabel = '<span style="color:red;">*</span> '+fl;
+	} else if (ab === true && fl) {
+		this.fieldLabel = '&nbsp; '+fl;
 	}
 });
