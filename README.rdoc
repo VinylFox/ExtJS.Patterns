@@ -4,4 +4,4 @@ This is a collection of useful patterns to use when working with Ext JS.
 
 * Ext.sequence
 * Ext.intercept
-
+* Ext.override
